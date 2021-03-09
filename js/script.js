@@ -10,7 +10,9 @@ project 1 - A Random Quote Generator
 /*** 
  * `quotes` array 
 ***/
-const qoutes= [
+
+// Created an array with objects to create the qoutes.
+const qoutes= [ 
   {
   qoute:'Be yourself; everyone else is already taken.',
   source:'Albert Einstein'
@@ -39,9 +41,10 @@ const qoutes= [
 /***
  * `getRandomQuote` function
 ***/
-
-function getRandomQuote() {
- let num = Math.floor(Math.random() * 5 ) + 1;
+// This generates a random quote number.The random number chosen will be used to pick a quote according to index
+function getRandomQoute() {
+  // Generates a number from 1-6
+ let num = Math.floor(Math.random() * 5 ) + 1; 
 let randomQoute = qoutes[num];
   return randomQoute;
 }
@@ -52,16 +55,24 @@ let randomQoute = qoutes[num];
 ***/
 
 function printQuote() {
- const getQoute = getRandomQuote();
-let Qoute = <p class="quote"> randomQuote.quote</p>
-<p class="source"> randomQuote.source
 
-if(qoutes.citation){
-  <span class="citation">quote citation</span>
-  <span class="year">quote year</span>
-</p>
+ let getQoute = getRandomQoute();
+
+ let htmlPrint = `<p class="quote"> ${getQoute.qoute}</p>
+<p class="source"> ${getQoute.source}`
+
+if(getQoute.citation){
+  htmlPrint +=
+  `<span class="citation">$(getQoute.citation)</span>`;
 }
+
+if(getQoute.year){
+  htmlPrint +=
+  `<span class="year">$(getQoute.year)</span></p>`
 }
+return document.getElementById('quote-box').innerHTML = htmlPrint;
+}
+
 
 /***
  * click event listener for the print quote button
