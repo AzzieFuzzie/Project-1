@@ -12,27 +12,27 @@ project 1 - A Random Quote Generator
 ***/
 
 // Created an array with objects to create the qoutes.
-const qoutes= [ 
+const quotes= [ 
   {
-  qoute:'Be yourself; everyone else is already taken.',
+  quote:'Be yourself; everyone else is already taken.',
   source:'Albert Einstein'
 },
   {
-    qoute:'So many books, so little time.',
+    quote:'So many books, so little time.',
     source:'Frank Zappa',
     citation: 'Good Reads'
   },
   {
-    qoute:'Be the change that you wish to see in the world.',
+    quote:'Be the change that you wish to see in the world.',
     source:'Mahatma Gandhi',
-    year:'2008'
+    year:2008
   },
   {
-    qoute:'If you tell the truth, you do not have to remember anything.',
+    quote:'If you tell the truth, you do not have to remember anything.',
     source:'Mark Twain'
   },
   {
-    qoute:'All you need is love. But a little chocolate now and then does not hurt.',
+    quote:'All you need is love. But a little chocolate now and then does not hurt.',
     source:'Charles M. Schulz'
   }
 ];
@@ -42,11 +42,11 @@ const qoutes= [
  * `getRandomQuote` function
 ***/
 // This generates a random quote number.The random number chosen will be used to pick a quote according to index
-function getRandomQoute() {
+function getRandomQuote() {
   // Generates a number from 1-6
  let num = Math.floor(Math.random() * 5 ) + 1; 
-let randomQoute = qoutes[num];
-  return randomQoute;
+let randomQuote = quotes[num];
+  return randomQuote;
 }
 
 
@@ -56,19 +56,19 @@ let randomQoute = qoutes[num];
 
 function printQuote() {
 
- let getQoute = getRandomQoute();
+ let getQuote = getRandomQuote();
 
- let htmlPrint = `<p class="quote"> ${getQoute.qoute}</p>
-<p class="source"> ${getQoute.source}`
+ let htmlPrint = `<p class="quote"> ${getQuote.quote}</p>
+<p class="source"> ${getQuote.source}`
 
-if(getQoute.citation){
+if(getQuote.citation){
   htmlPrint +=
-  `<span class="citation">$(getQoute.citation)</span>`;
+  `<span class="citation">${getQuote.citation}</span>`;
 }
 
-if(getQoute.year){
+if(getQuote.year){
   htmlPrint +=
-  `<span class="year">$(getQoute.year)</span></p>`
+  `<span class="year">${getQuote.year}</span></p>`
 }
 return document.getElementById('quote-box').innerHTML = htmlPrint;
 }
