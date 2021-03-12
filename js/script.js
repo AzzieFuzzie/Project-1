@@ -15,7 +15,8 @@ project 1 - A Random Quote Generator
 const quotes= [ 
   {
   quote:'Be yourself; everyone else is already taken.',
-  source:'Albert Einstein'
+  source:'Albert Einstein',
+  tag: 'Self Help'
 },
   {
     quote:'So many books, so little time.',
@@ -34,6 +35,14 @@ const quotes= [
   {
     quote:'All you need is love. But a little chocolate now and then does not hurt.',
     source:'Charles M. Schulz'
+  },
+  {
+    quote:  'A room without books is like a body without a soul.',
+    source:' Marcus Tullius Cicero'
+  },
+  {
+    quote:  'You only live once, but if you do it right, once is enough.',
+    source:' Mae West'
   }
 ];
   
@@ -44,7 +53,7 @@ const quotes= [
 // This generates a random quote number.The random number chosen will be used to pick a quote according to index
 function getRandomQuote() {
   // Generates a number from 1-6
- let num = Math.floor(Math.random() * 5 ) + 1; 
+ let num = Math.floor(Math.random() *7 ) ; 
 let randomQuote = quotes[num];
   return randomQuote;
 }
@@ -70,9 +79,27 @@ if(getQuote.year){
   htmlPrint +=
   `<span class="year">${getQuote.year}</span></p>`
 }
+
+if(getQuote.tag){
+  htmlPrint +=
+  `<span class="tag">${getQuote.tag}</span></p>`
+}
 return document.getElementById('quote-box').innerHTML = htmlPrint;
+ background();
 }
 
+// Background Color Change function
+const backgroundColors = [ "#D94D30", "#F5E973", "#B0DF29", "#1FC8B3", "#10AFE2", "#4B84F5", "#59338B", "#8619AF", "#BD1274" ];
+
+function background(arr){
+  let bgColor = Math.floor(Math.random)(backgroundColors);
+  return document.body.style.backgroundColor = arr[backgroundColors];
+}
+
+// Auto refresh Quotes function
+setInterval( () =>{ 
+  printQuote(); 
+}, 3000);
 
 /***
  * click event listener for the print quote button
@@ -80,3 +107,4 @@ return document.getElementById('quote-box').innerHTML = htmlPrint;
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.addEventListener("click", background);
