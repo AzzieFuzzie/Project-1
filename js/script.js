@@ -52,7 +52,7 @@ const quotes= [
 ***/
 // This generates a random quote number.The random number chosen will be used to pick a quote according to index
 function getRandomQuote() {
-  // Generates a number from 1-6
+  // Generates a number from 1-7
  let num = Math.floor(Math.random() *7 ) ; 
 let randomQuote = quotes[num];
   return randomQuote;
@@ -84,16 +84,18 @@ if(getQuote.tag){
   htmlPrint +=
   `<span class="tag">${getQuote.tag}</span></p>`
 }
+background();
 return document.getElementById('quote-box').innerHTML = htmlPrint;
- background();
+ 
 }
 
 // Background Color Change function
 const backgroundColors = [ "#D94D30", "#F5E973", "#B0DF29", "#1FC8B3", "#10AFE2", "#4B84F5", "#59338B", "#8619AF", "#BD1274" ];
 
-function background(arr){
-  let bgColor = Math.floor(Math.random)(backgroundColors);
-  return document.body.style.backgroundColor = arr[backgroundColors];
+function background(){
+  let bgColor = Math.floor(Math.random()*backgroundColors.length);
+
+ return document.body.style.backgroundColor = backgroundColors[bgColor];
 }
 
 // Auto refresh Quotes function
