@@ -52,12 +52,11 @@ const quotes= [
 ***/
 
 function getRandomQuote() {
-  for(i=0;i <= quotes.length; i++ ){
-    let randomQuote = quotes[i];
-    return randomQuote;
-  }
+  let num = Math.floor(Math.random() *7 ) ; 
+  let quoteg  = quotes[num]
+  return quoteg
 }
-//  let num = Math.floor(Math.random() *7 ) ; 
+
 // This generates a random quote number.The random number chosen will be used to pick a quote according to index
   // Generates a number from 1-7
 
@@ -105,6 +104,7 @@ function background(){
 // Auto refresh Quotes function
 setInterval( () =>{ 
   printQuote(); 
+  background();
 }, 3000);
 
 /***
